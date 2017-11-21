@@ -1,0 +1,14 @@
+{% if shift.runs_related.all %}
+	<h3>NEW RUNS </h3>
+	<h4> {{shift}}, {{shift.start_datetime}} </h4>
+	<ul>
+	{% for run in shift.runs_related.all %}
+    	<br> <li> Description: {{ run.runs_text }} <br> Start Time: {{run.runs_start}} </br > End Time:{{run.runs_end}} </li> </br>
+	{% endfor %}
+	</ul>
+	
+{% else %}
+    <p>No shifts are available.</p>
+{% endif %}
+
+

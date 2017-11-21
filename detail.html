@@ -1,0 +1,15 @@
+{% if shift.runs_related.all %}
+	<h3>Runs </h3>
+	<h4> {{shift}}, {{shift.start_datetime}} </h4>
+	<ul>
+	<form action="{% url 'shifts:create_run' shift.id %}" method="post">
+	{% csrf_token %}
+	{% for run in shift.runs_related.all %}
+    	<br> <li> Description: {{ run.runs_text }} <br> Start Time: {{run.runs_start}} </br > End Time:{{run.runs_end}} </li> </br>
+	{% endfor %}
+	</ul>
+	<input type="text" name="run" />
+	<input type="submit" value="Create" />
+{% else %}
+	<h3> no runs to display {{text}}</h3>
+{% endif %}

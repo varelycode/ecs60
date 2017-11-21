@@ -1,0 +1,15 @@
+<h3> Shifts </h3>
+
+{% if latest_shifts_list %}
+    <ul>
+    {% for shift in latest_shifts_list %}
+        <li> Description: <a href=" {% url 'shifts:detail' shift.id %}">{{ shift }}</a></li>
+        <br> Start Time: {{shift.start_datetime}}</br>
+        End Time: {{shift.end_datetime}}
+        <br> </br>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No shifts are available.</p>
+{% endif %}
